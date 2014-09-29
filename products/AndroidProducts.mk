@@ -21,6 +21,9 @@ endif
 ifeq (par_tilapia,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/par_tilapia.mk
 endif
+ifeq (par_ghost,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/par_ghost.mk
+endif    
 ifeq (par_test,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/par_test.mk
 endif
