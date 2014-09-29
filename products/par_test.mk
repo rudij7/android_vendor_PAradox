@@ -12,16 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq (par_falcon,$(TARGET_PRODUCT))
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/par_falcon.mk
-endif
-ifeq (par_grouper,$(TARGET_PRODUCT))
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/par_grouper.mk
-endif
-ifeq (par_tilapia,$(TARGET_PRODUCT))
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/par_tilapia.mk
-endif
-ifeq (par_test,$(TARGET_PRODUCT))
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/par_test.mk
-endif
+# Check for target product
 
+ifeq (par_test,$(TARGET_PRODUCT))
+
+# OVERLAY_TARGET adds overlay asset source
+OVERLAY_TARGET := pa_xhdpi
+
+# Build paprefs from sources
+PREFS_FROM_SOURCE ?= false
+
+# Inherit telephony common stuff
+$(call inherit-product, vendor/PAradox/configs/telephony.mk)
+
+# Include ParanoidAndroid common configuration
+include vendor/PAradox/main.mk
+
+# Override AOSP build properties
+# Release name
+PRODUCT_RELEASE_NAME := Test Device
+PRODUCT_NAME := par_test
+
+# Inherit AOSP device configuration
+$(call inherit-product, device/test/test/full_test.mk)
+
+endif
+ 
