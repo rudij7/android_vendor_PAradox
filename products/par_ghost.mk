@@ -14,7 +14,7 @@
 
 # Check for target product
 
-ifeq (par_test,$(TARGET_PRODUCT))
+ifeq (par_ghost,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_xhdpi
@@ -30,11 +30,11 @@ include vendor/PAradox/main.mk
 
 # Override AOSP build properties
 # Release name
-PRODUCT_RELEASE_NAME := Test Device
-PRODUCT_NAME := par_test
+PRODUCT_RELEASE_NAME := Moto X
+PRODUCT_NAME := par_ghost
 
 # Inherit AOSP device configuration
-$(call inherit-product, device/test/test/full_test.mk)
+$(call inherit-product, device/motorola/ghost/full_ghost.mk)
 
 endif
  
