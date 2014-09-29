@@ -7,7 +7,7 @@ Getting Your Device Supported
 
 There are a few things we expect to see:
 
-##### [vendor_aokp](https://github.com/PAradox/vendor_PAradox)
+##### [vendor_PAradox](https://github.com/PAradox/vendor_PAradox)
 ```
 Our vendor will need a new .mk file for your device along with the other apprpriate edits to the products folder.
 Your device must be added to vendorsetup.sh for nightlies to run for it!
